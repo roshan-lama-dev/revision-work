@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.main {
+  min-height: 73vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer {
+  position: relative;
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dashboard {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+}
+
+.mainSidebar {
+  background: url("https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
+    no-repeat;
+
+  background-size: cover;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.sidebar {
+  background-color: black;
   color: white;
+  flex: 0.2;
+  /* min-height: 100vh; */
 }
 
-.App-link {
-  color: #61dafb;
+.mainLayout {
+  flex: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.middle {
+  margin-top: 15px;
+}
+
+.middle ul li {
+  margin-top: 2px;
+  list-style-type: none;
+  transition: all 0.5s;
+}
+
+.middle ul li:hover {
+  background-color: white;
+  padding: 5px;
+  color: black;
+  cursor: pointer;
+  font-size: large;
+  border-radius: 15%;
 }
