@@ -1,10 +1,13 @@
 .main {
-  min-height: 73vh;
+  min-height: 83vh;
+  background: black;
+  /* color: white; */
 }
 
 .footer {
   position: relative;
   bottom: 0;
+  /* background: ye; */
 }
 
 .dashboard {
@@ -12,6 +15,18 @@
   flex-direction: row;
 }
 
+.loginback {
+  background: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bG9naW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    no-repeat center center;
+  background-size: cover;
+  min-height: 60vh;
+}
+
+.textwhite {
+  color: white;
+}
+.sideBorder {
+}
 .mainSidebar {
   background: url("https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
     no-repeat;
@@ -25,7 +40,9 @@
 .sidebar {
   background-color: black;
   color: white;
-  flex: 0.2;
+  flex: 0.3;
+  border-style: solid;
+  border-color: #ffc107;
   /* min-height: 100vh; */
 }
 
@@ -39,15 +56,15 @@
 
 .middle ul li {
   margin-top: 2px;
-  list-style-type: none;
+  list-style-type: disc;
   transition: all 0.5s;
 }
 
 .middle ul li:hover {
-  background-color: white;
+  background-color: #ffc107;
   padding: 5px;
   color: black;
   cursor: pointer;
   font-size: large;
-  border-radius: 15%;
+  border-radius: 5%;
 }

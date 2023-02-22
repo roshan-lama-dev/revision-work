@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import CustomInput from "../customInput/CustomInput";
 import { DashboardLayout } from "../customLayout/DashboardLayout";
@@ -81,20 +81,27 @@ export const AddBooks = () => {
   return (
     <DashboardLayout>
       <Container>
-        <Form onSubmit={handleonSubmit}>
-          {formDetails.map((item, index) => {
-            return (
-              <CustomInput
-                {...item}
-                key={item.name}
-                onChange={handleOnChange}
-              />
-            );
-          })}
-          <Button type="submit" className="mt-4">
-            Add Books
-          </Button>
-        </Form>
+        <div className="p-5">
+          <Row>
+            <Col></Col>
+            <Col>
+              <Form onSubmit={handleonSubmit}>
+                {formDetails.map((item, index) => {
+                  return (
+                    <CustomInput
+                      {...item}
+                      key={item.name}
+                      onChange={handleOnChange}
+                    />
+                  );
+                })}
+                <Button type="submit" className="mt-4">
+                  Add Books
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </DashboardLayout>
   );

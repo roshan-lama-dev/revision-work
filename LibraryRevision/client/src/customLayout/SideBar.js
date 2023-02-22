@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getUser } from "../helpers/UserfromSession";
 
 export const SideBar = () => {
+  const role = getUser();
   const userObj = JSON.parse(sessionStorage.getItem("user"));
 
   return (
-    <div className="mt-5 d-flex flex-column justify-content-between align-items-center">
+    <div className="mt-5 d-flex flex-column justify-content-between align-items-center sideBorder">
       <div className="mainSidebar bg-blue"></div>
+      <div className="mt-2">
+        <span className="text-warning">Welcome {userObj.fName}</span>
+      </div>
 
-      <div className="middle">
+      <div className="middle mt-5">
         <ul>
           {userObj.role === "teacher" ? (
             <>
@@ -31,9 +36,9 @@ export const SideBar = () => {
       </div>
 
       <div className="bottom">
-        <ul>
+        {/* <ul>
           <li>User Profile</li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const Headers = () => {
   return (
-    <Navbar bg="light" expand="md">
+    <Navbar className="textwhite" bg="warning" text="light" expand="md">
       <Container>
         <Navbar.Brand href="#home">Library Management</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
