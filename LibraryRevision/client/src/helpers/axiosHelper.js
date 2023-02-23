@@ -59,3 +59,15 @@ export const getBooks = async () => {
     };
   }
 };
+
+export const deleteBookFront = async (_id) => {
+  try {
+    const { data } = await axios.delete(rootUrl + "book", _id);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};

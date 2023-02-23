@@ -1,13 +1,19 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
+import { deleteBookFront } from "../helpers/axiosHelper";
 import { getUser } from "../helpers/UserfromSession";
 
-export const CustomCards = ({ title, author, thumbnail, published }) => {
+export const CustomCards = ({ _id, title, author, thumbnail, published }) => {
   const role = getUser();
   console.log(role);
 
   const handleOnBorrow = () => {};
-  const handleOnDelete = () => {};
+  const handleOnDelete = async (_id) => {
+    const { status, message } = await deleteBookFront(_id);
+
+    toast[status](message);
+  };
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={thumbnail} />
@@ -21,7 +27,7 @@ export const CustomCards = ({ title, author, thumbnail, published }) => {
             <Button variant="primary" onClick={handleOnBorrow}>
               Borrow
             </Button>
-            <Button variant="danger" onClick={handleOnDelete}>
+            <Button variant="danger" onClick={() => handleOnDelete(_id)}>
               Delete
             </Button>
           </div>

@@ -7,3 +7,7 @@ export const postBook = (bookObj) => {
 export const getBook = () => {
   return BookSchema.find();
 };
+
+export const deleteBooks = (_id) => {
+  return BookSchema.findByIdAndDelete(_id);
+};

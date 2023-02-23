@@ -35,6 +35,8 @@ export const Login = () => {
       toast[status](message);
       sessionStorage.setItem("user", JSON.stringify(result));
       navigate("/books");
+    } else {
+      toast[status](message);
     }
   };
 
@@ -58,7 +60,7 @@ export const Login = () => {
                 </h1>
               </div>
             </Col>
-            <Col md="6" className="md">
+            <Col md="6" className="md design">
               {" "}
               <Form onSubmit={handleOnSubmit}>
                 <h1 className="text-end">Login</h1>
@@ -71,7 +73,7 @@ export const Login = () => {
                       onChange={handleOnChange}
                     />
                   ))}
-                  <Button className="mt-3" type="submit">
+                  <Button variant="warning" className="mt-3" type="submit">
                     Login
                   </Button>
                 </div>

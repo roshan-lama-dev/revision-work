@@ -65,10 +65,12 @@ export const Register = () => {
   return (
     <MainLayout>
       <Container>
-        <Row>
-          <Col>Hello World</Col>
-          <Col>
+        <Row className="p-5 ">
+          <Col className="register-bg rounded-5"></Col>
+          <Col className="design p-3">
             <Form onSubmit={handleOnSubmit}>
+              <h1 className="text-end">Register</h1>
+              <hr />
               {inputFields.map((item, index) => (
                 <CustomInput {...item} key={index} onChange={handleOnChange} />
               ))}
@@ -89,7 +91,7 @@ export const Register = () => {
                 <option value={"student"}>Student</option>
               </Form.Select>
 
-              <Button type="submit" className="mt-3">
+              <Button type="submit" variant="warning" className="mt-3">
                 Register
               </Button>
             </Form>

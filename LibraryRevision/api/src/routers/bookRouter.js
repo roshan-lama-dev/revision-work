@@ -1,5 +1,9 @@
 import express from "express";
-import { getBook, postBook } from "../models/bookModels/BookModel.js";
+import {
+  deleteBooks,
+  getBook,
+  postBook,
+} from "../models/bookModels/BookModel.js";
 
 const router = express.Router();
 
@@ -26,6 +30,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+// get the books
 router.get("/", async (req, res, next) => {
   try {
     const result = await getBook();
@@ -35,4 +40,23 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// delete a specific books
+
+router.delete("/", async (req, res, next) => {
+  try {
+    const result = await deleteBooks(req.headers.authorization);
+    console.log(result);
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "The deletion is successful",
+        })
+      : res.json({
+          status: "error",
+          message: "Cannot delete the books. Please try again",
+        });
+  } catch (error) {
+    next(error);
+  }
+});
 export default router;

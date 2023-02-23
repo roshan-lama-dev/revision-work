@@ -36,7 +36,10 @@
   height: 100px;
   width: 100px;
 }
-
+.design {
+  color: white;
+  /* padding: 10px; */
+}
 .sidebar {
   background-color: black;
   color: white;
@@ -67,4 +70,13 @@
   cursor: pointer;
   font-size: large;
   border-radius: 5%;
+}
+
+/* register  */
+.register-bg {
+  background: url("https://images.unsplash.com/photo-1578264271517-a3e0f4f67312?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlZ2lzdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+    no-repeat center center;
+  background-size: cover;
+  min-height: 60vh;
+  /* border-radius: 15%; */
 }
