@@ -3,16 +3,22 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import { dbConfig } from "./src/config/dbConfig.js";
 
 // initialising dotenv
 dotenv.config();
 
 const app = express();
 
+dbConfig();
+
 //initialisng middlewares
 app.use(cors());
 app.use(morgan("dev"));
 const PORT = process.env.PORT || 3000;
+
+import adminRouter from "./src/routers/adminRouter.js";
+app.use("/api/v1/admin", adminRouter);
 
 app.use("/", (req, res, next) => {
   res.json({
@@ -20,29 +26,13 @@ app.use("/", (req, res, next) => {
   });
 });
 
-app.use("*", (req, res, next, error) => {
-  const obj = {
-    status: "error",
-    statusCode: 404,
-    message: "Page not found",
-  };
-
-  next(error);
-});
-
 app.use((error, req, res, next) => {
-  try {
-    const errorCode = error.statusCode;
-    res.status(errorCode).json({
-      status: "error",
-      message: error.message,
-    });
-  } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
-  }
+  console.log(error.message, "===GlobalError====");
+  const errorCode = error.errorCode || 404;
+  res.status(errorCode).json({
+    status: "error",
+    message: error.message,
+  });
 });
 
 app.listen(PORT, (error) => {
