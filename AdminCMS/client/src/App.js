@@ -4,6 +4,8 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/login/LoginPage";
 import Register from "./pages/register/Register";
+import { EmailVerify } from "./pages/verify/EmailVerify";
+
 function App() {
   return (
     <div className="App">
@@ -11,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify" element={<EmailVerify />} />
         </Routes>
       </BrowserRouter>
     </div>

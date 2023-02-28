@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000/api/v1/admin
+Content-Type: application/json
+
+{
+    "fName":"Roshan",
+    "lName":"Lama",
+    "email":"roshan1@gmail.com",
+    "password":"234234234"
+}
