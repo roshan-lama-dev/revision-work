@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Form, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CustomForm } from "../../customComponents/CustomForm";
@@ -8,6 +8,12 @@ import Footer from "../layout/Footer";
 
 const Register = () => {
   const [registerDetails, setRegisterDetails] = useState({});
+  //this is for the response
+  const [response, setResponse] = useState({});
+  // this is for the spinner
+  const [isLoading, setIsLoading] = useState(false);
+  // this for the erro
+  const [err, setErr] = useState("");
   const loginFields = [
     {
       label: "First Name",
@@ -60,20 +66,42 @@ const Register = () => {
     },
   ];
 
-  const handelOnSubmit = async (e) => {
-    e.preventDefault();
-    const { status, message } = await registerNewAdmin(registerDetails);
-    console.log(status, message);
-    toast[status](message);
-  };
-
   const handleOnChange = (e) => {
     const { name, value } = e.target;
+
+    setErr("");
+
+    // regex checking for the password
+    if (name === "password") {
+      value.length < 6 && setErr("Password must be atleaset 6 character long");
+      !/[0-9]/.test(value) &&
+        setErr("At least one number must be included in the password");
+      !/[a-z]/.test(value) &&
+        setErr("At least one letter must be lowercase in the password");
+      !/[A-Z]/.test(value) &&
+        setErr("At least one letter must be uppercase in the password");
+    }
     setRegisterDetails({
       ...registerDetails,
       [name]: value,
     });
   };
+
+  const handelOnSubmit = async (e) => {
+    e.preventDefault();
+
+    const { confirmPassword, ...rest } = registerDetails;
+    if (confirmPassword !== rest.password) {
+      return toast.error("Password does not match");
+    }
+    setIsLoading(true);
+    const result = await registerNewAdmin(rest);
+    if (result) {
+      setResponse(result);
+      setIsLoading(false);
+    } else toast.error("Api call unsuccessful");
+  };
+
   return (
     <>
       <div className="login-main p-5">
@@ -85,6 +113,19 @@ const Register = () => {
               <hr />
               <Form onSubmit={handelOnSubmit}>
                 <div className="fields p-3">
+                  <div className="text-center">
+                    {isLoading && <Spinner></Spinner>}
+                  </div>
+
+                  {response.message && (
+                    <Alert
+                      variant={
+                        response.status === "success" ? "success" : "danger"
+                      }
+                    >
+                      <div className="customisedMsg">{response.message}</div>
+                    </Alert>
+                  )}
                   {loginFields.map((item, index) => {
                     return (
                       <CustomForm
@@ -94,13 +135,15 @@ const Register = () => {
                       />
                     );
                   })}
+
+                  {err && <div className="text-danger ">{err} </div>}
                 </div>
 
                 <div className="text-end mt-2">
                   <Link> forgot password?</Link>
                 </div>
                 <div className=" d-flex justify-content-center align-items-center mt-3">
-                  <Button type="submit" variant="info ">
+                  <Button type="submit" variant="info " disabled={err}>
                     Register
                   </Button>
                 </div>

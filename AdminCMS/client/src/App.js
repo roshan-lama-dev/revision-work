@@ -7,6 +7,7 @@ import Register from "./pages/register/Register";
 import { EmailVerify } from "./pages/verify/EmailVerify";
 
 function App() {
+  console.log(process.env.REACT_APP_ROOT_API);
   return (
     <div className="App">
       <BrowserRouter>

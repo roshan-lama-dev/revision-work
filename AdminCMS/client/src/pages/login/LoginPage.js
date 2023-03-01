@@ -1,5 +1,5 @@
 import React from "react";
-import AdminLayout from "../layout/AdminLayout";
+
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { CustomForm } from "../../customComponents/CustomForm";
 import { Link } from "react-router-dom";

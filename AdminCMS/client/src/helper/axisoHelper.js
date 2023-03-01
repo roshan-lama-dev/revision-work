@@ -1,10 +1,23 @@
 import axios from "axios";
 
-const rootUrl = "http://localhost:3000/api/v1/";
+const rootUrl = process.env.REACT_APP_ROOT_API;
+const adminUrl = rootUrl + "admin";
 export const registerNewAdmin = async (userObj) => {
   try {
     const { data } = await axios.post(rootUrl + "admin", userObj);
-    console.log(data);
+
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+export const verifyAdminUser = async (userObj) => {
+  try {
+    const { data } = await axios.post(adminUrl + "/verify-email", userObj);
+
     return data;
   } catch (error) {
     return {

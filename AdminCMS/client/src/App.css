@@ -39,3 +39,7 @@
 .verfiyPage {
   min-height: 100vh;
 }
+
+.customisedMsg {
+  font-family: "Ubuntu", sans-serif;
+}
