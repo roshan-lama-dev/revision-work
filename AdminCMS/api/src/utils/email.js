@@ -36,7 +36,7 @@ export const adminSignUpEmailVerification = ({ email, fName }, ul) => {
     // and once the user recieves the email / the verification link. Then the verification code and the email is captured and send through a api to see if it matched the database, if it does match the database will update the status of the user as an active user , which tells us that the email/user is verified
     // the way the verification link can be captured in the ui is that the link is provided of the frontend. and we will create a route of the same link url
 
-    from: `"Register Form" <>`, // sender address
+    from: `"Register Form" <${email}>'`, // sender address
     to: process.env.SMTP_USER, // list of receivers
     subject: "New user Verfication Email", // Subject line
     text: `Hi ${fName}, please follow the link to activate and vrefiy the link ${ul}`, // plain text body

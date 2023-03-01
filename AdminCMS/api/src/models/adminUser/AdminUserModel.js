@@ -7,3 +7,9 @@ export const postUser = (userObj) => {
 export const getTheUser = (filter) => {
   return AdminUserSchema.findOne(filter);
 };
+
+export const findAdminAndUpdate = (filter, obj) => {
+  return AdminUserSchema.findOneAndUpdate(filter, obj, {
+    new: true,
+  });
+};

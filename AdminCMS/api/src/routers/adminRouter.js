@@ -1,5 +1,8 @@
 import express from "express";
-import { postUser } from "../models/adminUser/AdminUserModel.js";
+import {
+  findAdminAndUpdate,
+  postUser,
+} from "../models/adminUser/AdminUserModel.js";
 import { v4 as uuidv4 } from "uuid";
 import { hashPassword } from "../utils/bcrypt.js";
 import { adminSignUpEmailVerification } from "../utils/email.js";
@@ -47,4 +50,31 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.post("/verify-email", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const updateObj = {
+      status: "active",
+      isEmailVerfied: true,
+      verificationCode: "",
+    };
+    const result = await findAdminAndUpdate(req.body, updateObj);
+
+    if (result?._id) {
+      res.json({
+        status: "success",
+        message: "Your email has been verified. You can login now",
+      });
+
+      // send email confirmation as well
+      return;
+    }
+    res.json({
+      status: "error",
+      message: "Invalid Link",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 export default router;
