@@ -1,10 +1,11 @@
 import express from "express";
 import {
   findAdminAndUpdate,
+  getTheUser,
   postUser,
 } from "../models/adminUser/AdminUserModel.js";
 import { v4 as uuidv4 } from "uuid";
-import { hashPassword } from "../utils/bcrypt.js";
+import { checkPassword, hashPassword } from "../utils/bcrypt.js";
 import { adminSignUpEmailVerification } from "../utils/email.js";
 uuidv4();
 const router = express.Router();
@@ -49,7 +50,7 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-
+// email verifiaction
 router.post("/verify-email", async (req, res, next) => {
   try {
     console.log(req.body);
@@ -77,4 +78,52 @@ router.post("/verify-email", async (req, res, next) => {
     next(error);
   }
 });
+
+// login user
+
+// call back function
+
+router.post("/login", async (req, res, next) => {
+  try {
+    // first check the email matches or not. we will do the password seperately or not since it is hashed
+    const { email, password } = req.body;
+
+    const result = await getTheUser({ email });
+    // check thhe status of the use
+    if (result?.status === "inactive") {
+      return res.json({
+        status: "error",
+        message: "Please verift and acitvate your email first ",
+      });
+    }
+
+    if (result?._id) {
+      const isPasswordMatched = checkPassword(password, result?.password);
+
+      if (isPasswordMatched) {
+        result.password = undefined;
+        result.__v = undefined;
+
+        // rule of json is . it doesnot return the undefined value
+        return res.json({
+          status: "success",
+          message: "Login is Successfull",
+          result,
+        });
+      }
+
+      res.json({
+        status: "error",
+        message: "Cannot login. Please check your credentials",
+      });
+    }
+    res.json({
+      status: "error",
+      message: "Invalid login credentials",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;
