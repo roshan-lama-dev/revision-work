@@ -32,4 +32,7 @@ const adminSlice = createSlice({
 // now adminSlice return the reducers and pre-defined keyword  actions when destrcutured. reducers holds the information of the initialState and reducres holds the fucntion and is called action creater. acitons ma map garda is gives all the fucntion created inside the reducers  that is
 const { reducer, actions } = adminSlice;
 
+export const { setUser, unSetUser } = actions;
+
+// these inline exported actions can be fired from anywhere as long as we use dispatch
 export default reducer;

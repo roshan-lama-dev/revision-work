@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button, FloatingLabel } from "react-bootstrap";
 import { CustomForm } from "../../customComponents/CustomForm";
 import { Link } from "react-router-dom";
 import Footer from "../layout/Footer";
+import { useDispatch } from "react-redux";
+import { loginAdmin } from "../admin-user/AdminUserAction";
 const LoginPage = () => {
-  const loginFields = [
-    {
-      label: "Email",
-      placeholder: "Roshan@gmail.com",
-      type: "email",
-      required: "true",
-      name: "email",
-    },
-    {
-      label: "Password",
-      placeholder: "*******",
-      type: "password",
-      required: "true",
-      name: "password",
-    },
-  ];
+  const emailRef = useRef("");
+  const passRef = useRef("");
+
+  const dispatch = useDispatch();
+  const [loginDetails, setLoginDetails] = useState({});
+  // const loginFields = [
+  //   {
+  //     label: "Email",
+  //     placeholder: "Roshan@gmail.com",
+  //     type: "email",
+  //     required: "true",
+  //     name: "email",
+  //   },
+  //   {
+  //     label: "Password",
+  //     placeholder: "*******",
+  //     type: "password",
+  //     required: "true",
+  //     name: "password",
+  //   },
+  // ];
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    const obj = {
+      email: emailRef.current.value,
+      password: passRef.current.value,
+    };
+    dispatch(loginAdmin(obj));
+  };
   return (
     <>
       <div className="login-main p-5">
@@ -30,18 +47,37 @@ const LoginPage = () => {
             <div className="loginformbackground">
               <div className="text-center ">Welcome to Admin CMS</div>
               <hr />
-              <Form>
+              <Form onSubmit={handleOnSubmit}>
                 <div className="fields p-3">
-                  {loginFields.map((item, index) => {
-                    return <CustomForm {...item} />;
-                  })}
+                  <Form.Group>
+                    <FloatingLabel label="email" className="mb-2">
+                      <Form.Control
+                        ref={emailRef}
+                        placeholder="Roshan@gmail.com"
+                        type="email"
+                        required="true"
+                        name="email"
+                      ></Form.Control>
+                    </FloatingLabel>
+                    <FloatingLabel label="email" className="mb-2">
+                      <Form.Control
+                        ref={passRef}
+                        placeholder="Roshan@gmail.com"
+                        type="password"
+                        required="true"
+                        name="password"
+                      ></Form.Control>
+                    </FloatingLabel>
+                  </Form.Group>
                 </div>
 
                 <div className="text-end mt-2">
                   <Link> forgot password?</Link>
                 </div>
                 <div className=" d-flex justify-content-center align-items-center mt-3">
-                  <Button variant="info ">Login</Button>
+                  <Button variant="info" type="submit">
+                    Login
+                  </Button>
                 </div>
                 <div className="d-flex justify-content-center align-items-center">
                   <hr />

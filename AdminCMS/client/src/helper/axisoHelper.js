@@ -26,3 +26,15 @@ export const verifyAdminUser = async (userObj) => {
     };
   }
 };
+export const fetchAdminLogin = async (userObj) => {
+  try {
+    const { data } = await axios.post(adminUrl + "/login", userObj);
+
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
