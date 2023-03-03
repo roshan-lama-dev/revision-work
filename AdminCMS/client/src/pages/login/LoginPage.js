@@ -7,6 +7,7 @@ import Footer from "../layout/Footer";
 import { useDispatch } from "react-redux";
 import { loginAdmin } from "../admin-user/AdminUserAction";
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const emailRef = useRef("");
   const passRef = useRef("");
 
@@ -50,7 +51,7 @@ const LoginPage = () => {
               <Form onSubmit={handleOnSubmit}>
                 <div className="fields p-3">
                   <Form.Group>
-                    <FloatingLabel label="email" className="mb-2">
+                    <FloatingLabel label="Email" className="mb-2">
                       <Form.Control
                         ref={emailRef}
                         placeholder="Roshan@gmail.com"
@@ -59,7 +60,7 @@ const LoginPage = () => {
                         name="email"
                       ></Form.Control>
                     </FloatingLabel>
-                    <FloatingLabel label="email" className="mb-2">
+                    <FloatingLabel label="Password" className="mb-2">
                       <Form.Control
                         ref={passRef}
                         placeholder="Roshan@gmail.com"
