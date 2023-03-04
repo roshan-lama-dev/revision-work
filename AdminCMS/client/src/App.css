@@ -43,3 +43,50 @@
 .customisedMsg {
   font-family: "Ubuntu", sans-serif;
 }
+
+/* test css */
+.picturebackgound {
+  background: url("https://img.freepik.com/free-photo/young-man-student-with-notebooks-showing-thumb-up-approval-smiling-satisfied-blue-studio-background_1258-65334.jpg?w=1380&t=st=1677836826~exp=1677837426~hmac=048796b78ba8b44b8243fc37b5671c4b1a2ebfbd92682151594c47e0db575472")
+    no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+}
+
+.backgroundColor {
+  background-color: #21beea;
+}
+
+.livechat {
+  position: fixed;
+  right: 0;
+  /* left: 0; */
+  top: 40%;
+  transform: rotate(270deg);
+}
+
+.logo {
+  background: url("https://www.hcf.com.au/content/dam/hcf/images/placeholder/logo_hcf1.png")
+    no-repeat;
+  background-size: contain;
+  min-height: 20vh;
+  min-width: 20vh;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subnav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.subnav ul li {
+  list-style-type: none;
+  margin-right: 12px;
+}
+
+.subnav ul li :hover {
+  font-size: 50px;
+}

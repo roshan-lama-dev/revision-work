@@ -11,7 +11,7 @@ const LoginPage = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [loginDetails, setLoginDetails] = useState({});
   // const loginFields = [
   //   {
