@@ -1,0 +1,51 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  position: fixed;
+  width: 100vw;
+  align-items: center;
+  height: 100px;
+  padding-right: 30px;
+  /* margin-right: 200px; */
+  margin-left: 12px;
+  z-index: 9;
+  background-color: whitesmoke;
+}
+.logo p {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.links ul {
+  display: flex;
+}
+
+.links ul li {
+  list-style-type: none;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.links ul li,
+.logo,
+.demoField:hover {
+  cursor: pointer;
+}
+
+.demoField {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.demoField button {
+  border: none;
+  background-color: #4ec6e0;
+  padding: 15px;
+  border-radius: 25px 25px 25px 25px;
+  color: white;
+}
+.helo {
+  z-index: -1;
+  min-height: 100vh;
+}
