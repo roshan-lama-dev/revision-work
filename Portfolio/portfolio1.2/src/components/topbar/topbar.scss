@@ -1,8 +1,66 @@
+@import "../../global.scss";
+
 .topbar {
   width: 100%;
   height: 70px;
-  background-color: purple;
+  background-color: white;
+  color: $mainColor;
   position: fixed;
   top: 0;
   z-index: 2;
+
+  .wrapper {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    // padding-top: 5px;
+    // align-items: center;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        font-size: 40px;
+        font-weight: 900;
+        text-decoration: none;
+        color: inherit;
+        margin-right: 90px;
+      }
+      .itemContainer {
+        // color: white;
+        display: flex;
+        align-items: center;
+        // justify-content: space-around;
+        margin-left: 30px;
+        .icon {
+          font-size: 20px;
+          margin-right: 5px;
+        }
+        span {
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .right {
+      .hamburger {
+        width: 32px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+
+        span {
+          width: 100%;
+          height: 3px;
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
 }
