@@ -10,13 +10,13 @@ export const Menu = ({ menuOpen, setMenuOpen }) => {
         <li onClick={() => setMenuOpen(false)}>
           <a href="#Portfolio">Portfolio</a>
         </li>
-        <li onClick={() => setMenuOpen(false)}>
+        {/* <li onClick={() => setMenuOpen(false)}>
           {" "}
           <a href="#work">Work</a>
         </li>
         <li onClick={() => setMenuOpen(false)}>
           <a href="#testimonial">Testimonail</a>
-        </li>
+        </li> */}
         <li onClick={() => setMenuOpen(false)}>
           {" "}
           <a href="#contact">Contact</a>

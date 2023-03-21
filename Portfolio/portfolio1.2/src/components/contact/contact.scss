@@ -1,3 +1,88 @@
+@import "../../global.scss";
+
 .contact {
   background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+  }
+  // align-items: center;
+  .left {
+    flex: 1;
+    overflow: hidden;
+    @include mobile {
+      display: none;
+    }
+    img {
+      height: 100%;
+      object-fit: fill;
+      overflow: hidden;
+    }
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-around;
+    justify-content: center;
+    h2 {
+      font-size: 30px;
+    }
+    form {
+      width: 70%;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      input {
+        width: 300px;
+        height: 30px;
+        font-size: 14px;
+        margin-bottom: 15px;
+        border-color: none;
+
+        @include mobile {
+          width: 200px;
+          height: 25px;
+        }
+      }
+      textarea {
+        margin-bottom: 15px;
+        width: 300px;
+        height: 200px;
+        font-size: 14px;
+        @include mobile {
+          width: 200px;
+          height: 100px;
+        }
+      }
+      button {
+        width: 150px;
+        height: 45px;
+        color: white;
+        border-radius: 15px;
+        padding: 10px;
+        text-align: center;
+        background-color: $mainColor;
+        cursor: pointer;
+        transition: all 2s ease;
+        font-weight: 500;
+        overflow: hidden;
+        font-size: 15px;
+        border-color: none;
+        outline: none;
+        &:hover {
+          background-color: white;
+          // border-color: $mainColor;
+          color: $mainColor;
+          outline: none;
+        }
+      }
+    }
+  }
 }

@@ -14,7 +14,7 @@ export const Intro = () => {
         showCursor: true,
         backDelay: 1500,
         // cursorChar: "<",
-        strings: ["Developer", "React Developer"],
+        strings: ["Web Developer", "Mern Stack Developer"],
       });
     }
 
@@ -32,10 +32,13 @@ export const Intro = () => {
       </div>
       <div className="right">
         <div className="wrapper">
-          <h2>Hi, I'm</h2>
+          <h2>
+            {" "}
+            <span style={{ color: "crimson", fontSize: "70px" }}> Hi,</span> I'm
+          </h2>
           <h1>Roshan Lama</h1>
           <h3>
-            Freelance <span ref={textRef}></span>
+            <span ref={textRef}></span>
           </h3>
         </div>
 

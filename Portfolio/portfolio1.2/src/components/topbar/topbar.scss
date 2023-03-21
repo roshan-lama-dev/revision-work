@@ -7,7 +7,7 @@
   color: $mainColor;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   transition: all 1s ease;
 
   .wrapper {
@@ -23,6 +23,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .logo {
         font-size: 40px;
         font-weight: 900;
@@ -30,15 +31,30 @@
         color: inherit;
         margin-right: 90px;
       }
+
       .itemContainer {
+        @include mobile {
+          display: none;
+        }
+
         // color: white;
         display: flex;
         align-items: center;
         // justify-content: space-around;
         margin-left: 30px;
-        .icon {
-          font-size: 20px;
+
+        a {
+          text-decoration: none;
+          list-style: none;
+        }
+        .icongithub {
+          font-size: 25px;
+          color: #171515;
           margin-right: 5px;
+        }
+        .iconlinkedin {
+          font-size: 25px;
+          color: #0077b5;
         }
         span {
           font-size: 20px;
