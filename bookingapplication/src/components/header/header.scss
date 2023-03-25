@@ -1,0 +1,40 @@
+@import "../../global.scss";
+
+.header {
+  background-color: $navcolor;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+
+  .headerContainer {
+    width: 100%;
+    max-width: 1024px;
+    // display: flex;
+    margin: 20px 0px 100px 0px;
+
+    .headerList {
+      display: flex;
+      gap: 40px;
+
+      .headerListItem {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .headerListItem.active {
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 20px;
+      }
+    }
+  }
+  // conditional css
+  //   &.active {
+  //     .headerListItem {
+  //       border: 1px solid white;
+  //       padding: 10px;
+  //       border-radius: 20px;
+  //     }
+  //   }
+}
