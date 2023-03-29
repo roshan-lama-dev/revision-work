@@ -4,12 +4,14 @@
   height: 70px;
   background-color: $navcolor;
   //   width: 100%;
-  padding: 0 20px;
+  // padding: 0 50px;
+  justify-content: center;
   display: flex;
   align-items: center;
 
   .navContainer {
     width: 100%;
+    max-width: 1024px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -3,9 +3,10 @@
 .header {
   background-color: $navcolor;
   color: white;
-  padding: 0 20px;
+  // padding: 0 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 
   .headerContainer {
@@ -14,6 +15,9 @@
     // display: flex;
     margin: 20px 0px 100px 0px;
 
+    .headerContainer.listMode {
+      margin: 20px 0px 0px 0px;
+    }
     .headerList {
       display: flex;
       gap: 40px;
@@ -81,6 +85,83 @@
         .date {
           position: absolute;
           top: 50px;
+        }
+
+        .optionItem {
+          // background: red;
+          height: 200px;
+          width: 300px;
+          position: absolute;
+          top: 50px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          border-radius: 10px;
+          box-shadow: -2px 2px 12px 5px rgba(53, 52, 52, 0.322);
+
+          .optionContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .adultItem {
+              display: flex;
+              height: 15px;
+              justify-content: space-around;
+              align-items: center;
+              color: black;
+
+              .text {
+                width: 50%;
+                display: flex;
+                justify-content: flex-start;
+              }
+
+              .coutner {
+                border: 1px solid black;
+                border-radius: 5px;
+                width: 50%;
+                display: flex;
+                gap: 2px;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                .counterBtn {
+                  // border: 1px solid #0071c2;
+                  border: none;
+                  color: #0071c2;
+                  background: white;
+                  font-size: 20px;
+                  // padding: 10px;
+                  height: 30px;
+                  width: 30px;
+                  // gap: 10px;
+                  cursor: pointer;
+                }
+                .counterBtn:disabled {
+                  cursor: not-allowed;
+                }
+              }
+            }
+          }
+
+          .doneBtn {
+            // border: none;
+            // outline: none;
+            // text-align: center
+            // display: flex;
+            width: 100%;
+            padding: 10px;
+            // justify-content: center;
+            // align-items: center;
+            cursor: pointer;
+            color: #0071c2;
+            font-weight: 500;
+            border: 1px solid#0071c2;
+            background: white;
+            border-radius: 5px;
+          }
         }
       }
     }
