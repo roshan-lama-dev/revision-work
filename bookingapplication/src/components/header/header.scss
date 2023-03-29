@@ -15,9 +15,6 @@
     // display: flex;
     margin: 20px 0px 100px 0px;
 
-    .headerContainer.listMode {
-      margin: 20px 0px 0px 0px;
-    }
     .headerList {
       display: flex;
       gap: 40px;
@@ -165,5 +162,9 @@
         }
       }
     }
+  }
+  .headerContainer.listMode {
+    // background-color: black;
+    margin: 20px 0px 10px 0px;
   }
 }
