@@ -82,10 +82,12 @@
         .date {
           position: absolute;
           top: 50px;
+          z-index: 2;
         }
 
         .optionItem {
-          // background: red;
+          z-index: 2;
+          background: white;
           height: 200px;
           width: 300px;
           position: absolute;

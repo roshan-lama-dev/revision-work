@@ -1,0 +1,42 @@
+.pList {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  //   flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  .pListItem {
+    // width: 100%;
+    // height: 250px;
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    // height: 150px;
+
+    img {
+      transition: transform 0.25s;
+    }
+
+    .pListItem:hover img {
+      transform: scale(1.1);
+    }
+    .pListImg {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .pListTitles {
+      h1 {
+        font-size: 18px;
+      }
+      h2 {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}
