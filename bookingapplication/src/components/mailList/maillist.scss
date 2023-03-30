@@ -1,0 +1,52 @@
+@import "../../global.scss";
+
+.mailListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 250px;
+  color: white;
+  width: 100%;
+  background-color: $navcolor;
+  p:nth-child(1) {
+    font-size: 25px;
+    font-weight: 300;
+  }
+  h2 {
+    font-size: 15px;
+    font-weight: 500;
+    word-spacing: 2px;
+  }
+  .subscribeField {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    width: 500px;
+    // font-size: 25px;
+    justify-content: center;
+    // align-items: center;
+
+    input {
+      flex: 2;
+      padding: 15px;
+      font-size: 20px;
+      //   color: white;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    button {
+      border-radius: 5px;
+      flex: 1;
+      border: none;
+      padding: 15px;
+      background-color: rgb(101, 101, 206);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      //   font-style:;
+    }
+  }
+}
