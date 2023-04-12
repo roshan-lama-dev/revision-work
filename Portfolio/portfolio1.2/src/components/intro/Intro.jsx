@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./intro.scss";
-
+import { motion } from "framer-motion";
 import { init } from "ityped";
 export const Intro = () => {
   const effectRan = useRef(false);
@@ -26,9 +26,18 @@ export const Intro = () => {
   return (
     <div className="intro" id="intro">
       <div className="left">
-        <div className="imgContainer">
-          <img src="assets/profileimg.png" alt="profilepic" />
-        </div>
+        <motion.div
+          className="imgContainer"
+          animate={{ x: 70 }}
+          transition={{ ease: "easeOut", duration: 2, type: "spring" }}
+        >
+          <motion.img
+            src="assets/profileimg.png"
+            alt="profilepic"
+            animate={{ x: 70 }}
+            transition={{ ease: "easeOut", duration: 2, type: "spring" }}
+          />
+        </motion.div>
       </div>
       <div className="right">
         <div className="wrapper">

@@ -7,7 +7,7 @@
   align-items: center;
   h1 {
     font-size: 50px;
-
+    overflow: hidden;
     @include mobile {
       font-size: 20px;
     }
@@ -29,7 +29,7 @@
 
   .conatiner {
     width: 90%;
-    height: 60%;
+    height: 80%;
     // height: 10%;
     display: flex;
     align-items: center;
@@ -40,7 +40,7 @@
 
     .item {
       width: 220px;
-      height: 220px;
+      height: 150px;
       border-radius: 20px;
       border: 1px solid rgb(240, 239, 239);
       margin: 10px 20px;
@@ -56,9 +56,44 @@
         width: 130px;
         height: 100px;
       }
-      h3 {
+      .card-details {
+        // display: flex;
+        // flex-direction: row;
         position: absolute;
-        font-size: 20px;
+        height: 100%;
+        font-size: 15px;
+        // text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .linkbtn {
+          display: flex;
+          gap: 10px;
+          // flex-direction: row;
+          // position: absolute;
+          // align-items: center;
+          // justify-content: center;
+          .bicon {
+            // font-size: 20px;
+            // color: red;
+
+            color: grey;
+            // font-size: 20px;
+            // font-size: 50px;
+            .biconbg {
+              font-size: 50px;
+            }
+          }
+          .gicon {
+            .giconbig {
+              font-size: 50px;
+            }
+            color: grey;
+          }
+          // ?ackground-color: black;
+        }
         @include mobile {
           font-size: 15px;
           text-align: center;

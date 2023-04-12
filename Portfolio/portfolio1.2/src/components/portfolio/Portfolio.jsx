@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Portfoliolist } from "../portfoliolist/Portfoliolist";
 import "./portfolio.scss";
-
+import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   featuredPortfolio,
   webPortfolio,
@@ -13,12 +14,10 @@ export const Portfolio = () => {
   const [selected, setSelected] = useState("featured");
   const list = [
     {
-      id: "featured",
-      title: "Featured",
-    },
-    {
       id: "web",
       title: "Web App",
+      livelink: "bookingapplication.vercel.app",
+      repolink: "https://github.com/roshan-lama-dev/bookingApp",
     },
     {
       id: "mobile",
@@ -77,7 +76,17 @@ export const Portfolio = () => {
           return (
             <div className="item">
               <img src={item.img} alt="app" />
-              <h3>{item.title}</h3>
+              <div className="card-details">
+                <h3> {item.title}</h3>{" "}
+                <div className="linkbtn">
+                  <a className="bicon" target="_blank" href={item.livelink}>
+                    <OpenInBrowserIcon className="biconbg" />
+                  </a>
+                  <a className="gicon" target="_blank" href={item.repolink}>
+                    <GitHubIcon className="giconbig" />
+                  </a>
+                </div>
+              </div>
             </div>
           );
         })}

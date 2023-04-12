@@ -14,8 +14,19 @@
     .imgContainer {
       width: 700px;
       height: 700px;
+      clip-path: polygon(
+        50% 0%,
+        83% 12%,
+        100% 43%,
+        94% 78%,
+        68% 100%,
+        32% 100%,
+        6% 78%,
+        0% 43%,
+        17% 12%
+      );
       background-color: crimson;
-      border-radius: 50%;
+      // border-radius: 50%;
       // overflow: hidden;
       overflow-y: hidden;
       overflow-x: hidden;
@@ -23,6 +34,19 @@
       align-items: center;
       justify-content: center;
       float: right;
+      margin-right: 70px;
+
+      // animation: wave 2s alternate;
+
+      // @keyframes wave {
+      //   50% {
+      //     transform: translateX(-10px);
+      //   }
+
+      //   100% {
+      //     transform: translateX(0px);
+      //   }
+      // }
       @include mobile {
         align-items: start;
       }
@@ -31,7 +55,8 @@
         width: 100%;
         overflow: hidden;
         object-fit: contain;
-
+        margin-right: 100px;
+        // transform: translateX(-1000px);
         @include mobile {
           margin-top: 100px;
           height: 50%;

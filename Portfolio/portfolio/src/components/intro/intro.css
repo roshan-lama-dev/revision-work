@@ -72,6 +72,26 @@
   padding-left: 25%;
   object-fit: cover;
   position: absolute;
+  animation: bounce;
+}
+
+@keyframes bounce {
+  10% {
+    transform: translateY(-10px);
+  }
+  30% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 .i-bg {
