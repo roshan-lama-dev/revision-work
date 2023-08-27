@@ -22,7 +22,7 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    borrowedBy: [{ type: Schema.Types.ObjectId, ref: "user" }],
+    borrowedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
   },
   { timestamps: true }
 );
